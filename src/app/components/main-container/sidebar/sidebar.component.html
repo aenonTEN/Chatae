@@ -1,0 +1,174 @@
+ 
+    
+
+   
+   
+    <!-- <div class="sidebar_header"> --> 
+        <!-- <img
+        mat-card-avatar
+        alt="avatar"> -->
+        <!-- <div class="sidebar_header_icons">
+            <button mat-icon-button>
+                <mat-icon>donut_large</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon>chat</mat-icon>
+            </button>
+            <button mat-icon-button [mat-menu-trigger-for]="menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+
+                <button mat-menu-item>Logout</button>
+            </mat-menu>
+            
+           
+        </div>
+    </div>
+    <div class="sidebar_search">
+        <div class="sidebar_search_content">
+            <mat-form-field>
+                <button mat-icon-button class="sidebar_search_content_icon" >
+                    <mat-icon>search_outline</mat-icon>
+                </button>
+                <input type="text"
+                class="sidebar_search_content_input"
+                name="search"
+                ngModel
+                placeholder="Search for users"
+                [formControl]="searchControl"
+                [matAutocomplete]="users">
+
+                <button type="submit" style="display: none;"></button>
+            <mat-autocomplete #users="matAutocomplete">
+
+                <mat-option *ngFor="let user of users$ | async">
+                    {{ user?.displayName}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field> -->
+        <!-- </div>
+    </div> -->
+
+    <div class="container">
+        <div class="chat-list mat-elevation-z5">
+          <div class="search-input">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Search your interests"
+                [matAutocomplete]="users"
+                [formControl]="searchControl"
+              />
+            </mat-form-field>
+            <mat-autocomplete #users="matAutocomplete">
+              <mat-option
+                *ngFor="let user of users$ | async" (click)="createChat(user)">
+                
+                {{ user.displayName }}
+              </mat-option>
+            </mat-autocomplete>
+          </div>
+          <div class="sidebar_content">
+            <ng-container>
+                <mat-selection-list [multiple]="false" [formControl]="chatListControl">
+                    <!-- <mat-divider></mat-divider> -->
+                    <mat-list-option  *ngFor="let chat of myChats$ | async" [value]="chat.id">
+                        <mat-divider></mat-divider>
+                        <img matListAvatar [src]="chat.chatPic ? chat.chatPic: 'assets/5879.jpg'">
+           
+
+                       <p mat-line class="chat-title"> 
+                        <span class="chat-name">{{chat.chatName}}</span>
+                        <span class="chat-date">{{chat.lastMessageDate | dateDisplay}}</span>
+                    
+                    </p>
+                    <p mat-line>
+                        {{chat.lastMessage}}
+                    </p>
+
+                        <!-- <p mat-line class="chat-title">
+                            <span class="chat-name"
+                            {{chat.chatName}}>
+                        </span> -->
+                           <!-- <span class="chat-date">
+                                {{chat.lastMessageDate}}
+                            </span>
+                        </p>
+                        <p mat-line>
+                            {{chat.lastMessage}}
+                        </p> -->
+
+                    </mat-list-option>
+                </mat-selection-list>
+                <!-- <div class="sidebar_content">
+                    <ng-container>
+                        <app-sidebar-content></app-sidebar-content>
+                    </ng-container>
+                </div> -->
+            
+                
+            </ng-container>
+        </div>
+        </div>
+
+
+
+        <div class="messages mat-elevation-z5">
+            <div class="messages-header" *ngIf="selectedChat$ | async as selectedChat; else noMessages">
+                <img [src]="selectedChat.chatPic ? selectedChat.chatPic : 'assets/5879.jpg'" alt="">
+                <h2>{{selectedChat.chatName}}</h2>
+            </div>
+            <ng-template #noMessages>
+                <div class="messages-header">
+                    <h2>Messages</h2>
+                </div>
+            </ng-template>
+            <mat-divider></mat-divider>
+            <div class="chat-area">
+                <ng-container *ngIf="user$ | async as currentUser">
+
+                
+                <div *ngFor="let message of messages$ | async" class="chat-bubble-container" 
+                [ngClass]="{'sender': message.senderId === currentUser.uid}">
+
+                    <div class="chat-bubble">
+
+                        {{message.text}}
+                        <span class="chat-date">
+                            {{message.sentDate | dateDisplay}}
+                            <!-- 14/6/2022 -->
+                        </span>
+
+                    </div>
+                </div>
+                <div #endOfChat></div>
+            </ng-container> 
+            </div>
+            <div class="input-area">
+                <mat-form-field appearance="outline">
+                    <input [formControl]="messageControl" matInput placeholder="Enter messages..." (keydown.enter)="sendMessage()">
+
+                    <button mat-icon-button matSuffix (click)="sendMessage()">
+                        <mat-icon>
+                            send
+                        </mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- <div class="sidebar_content">
+        <ng-container>
+            <app-sidebar-content></app-sidebar-content>
+        </ng-container>
+    </div> -->
+    
+

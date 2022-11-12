@@ -1,0 +1,52 @@
+h1 {
+    text-align: center;
+}
+
+.form-container {
+    margin-left: 280px;
+    margin-top: 100px;
+    width: 500px;
+    border-radius: 30px;
+    height: 500px;
+    // box-shadow: 60px 4px 2px 4px  pink;
+}
+mat-card {
+    background: #807099;
+    border-radius: 30px;
+    width: 420px;
+    min-width: 420;
+    height: 500px;
+}
+
+.profile-img {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 120px;
+    // margin:auto;
+
+    img {
+
+        border-radius: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    button {
+        position: absolute;
+        bottom: 10px;
+        right: 50%;
+    }
+}
+
+.form-container {
+    max-width: 400px;
+}
+
+.row {
+    display: flex;
+    gap: 16px
+}
+
+.margin-top {
+    margin-top: -23px;
+}

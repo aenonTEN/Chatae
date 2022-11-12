@@ -1,0 +1,75 @@
+<app-form-container title="signup">
+  <h1>Sign Up a New User!</h1>
+
+  <!-- <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Name" formControlName="name" />
+      <mat-error *ngIf="name?.errors?.['required']">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+   
+    
+  </form> -->
+
+
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name" />
+        <mat-error *ngIf="name?.errors?.['required']">
+          Name is required
+        </mat-error>
+      </mat-form-field> <br>
+      <mat-form-field>
+        <input matInput placeholder="Email address" formControlName="email" />
+        <mat-error *ngIf="email?.errors?.['required']">
+          Email address is required
+        </mat-error>
+        <mat-error *ngIf="email?.errors?.['email']">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field><br>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <mat-error *ngIf="password?.errors?.['required']">
+          Password is required
+        </mat-error>
+      </mat-form-field><br>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="Confirm Password"
+          formControlName="confirmPassword"
+        />
+        <mat-error *ngIf="confirmPassword?.errors?.['required']">
+          Confirm Password is required
+        </mat-error>
+      </mat-form-field>
+      <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
+          Passwords should match
+      </mat-error><br>
+   
+    <button mat-raised-button color="accent" [disabled]="signUpForm.invalid">Create Account</button>
+    <a routerLink="/signin" class="mat-caption goto-link">Already have an account?___<span style="color: rgb(255, 255, 255)">Signin</span> </a>
+  </form> 
+
+
+
+
+
+
+
+
+
+
+</app-form-container>
+
+
+
+

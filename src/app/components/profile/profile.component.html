@@ -1,0 +1,72 @@
+
+<div class="form-container  text center" *ngIf="user$ |async as user">
+    <mat-card>
+    <h1>User Profile</h1>
+    <div class="profile-img">
+        <img height="120" 
+        width="120" 
+        [src]="user.photoURL ?? 'assets/5879.jpg' " />
+        <button mat-mini-fab (click)="inputField.click()">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <input #inputField type="file" hidden (change)="uploadImage($event, user)">
+    </div>
+
+    <form class="margin-top" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+        <div class="row">
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              formControlName="Full Name"
+              placeholder="Full Name"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              formControlName="Profession Name"
+              placeholder="Profession Name"
+            />
+          </mat-form-field>
+        </div>
+    
+        <div class="row">
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              formControlName="displayName"
+              placeholder="Business/personal Display Name"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            As per the Unique Identification Authority of India (UIDAI), 
+            we would like to verify details of our users to make it a safe place for everyone.
+            <input style="margin-top: 5px;"
+              type="number"
+              matInput
+              formControlName="aadhar"
+              placeholder="Specify your Aadhar no"
+            />
+          </mat-form-field>
+        </div>
+        <mat-form-field>
+          <input
+            type="text"
+            matInput
+            formControlName="address"
+            placeholder="Address"
+          />
+        </mat-form-field>
+    
+        <br>
+        <button type="submit" class="margin-top" mat-raised-button color="accent" style="margin-left: 50%;">
+          Save
+        </button>
+      </form>
+
+    
+</mat-card>
+</div>

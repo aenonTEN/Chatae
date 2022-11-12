@@ -1,0 +1,239 @@
+// .container {
+//     display: flex;
+//     flex-direction: column;
+//     height: calc(100vh - 70px);
+
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+// .sidebar {
+//     height: 100%;
+//     flex: .35;
+//     border-right: 1px solid lightgrey;
+//     display: flex;
+//     flex-direction: column;
+
+//     .sidebar_header {
+//         padding: 10px;
+//         max-height: 60px;
+//         background-color:rgb(254, 255, 237);
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+
+//         &_icons {
+//             display: flex;
+//             align-items: center;
+//             justify-content: space-between;
+//             color: rgb(62, 62, 62);
+//             margin-right: 10px;
+//             width: 8vw;
+
+//             & > button mat-icon {
+//                 margin-right: 5vw;
+//                 font-size: 24px;
+//             }
+
+//         }
+//     }
+
+//     &_search {
+//         background-color: #f6f6f6;
+//         border-bottom: 1px solid #ccc;
+//         padding: 10px;
+//         display: flex;
+//         justify-content: center;
+//         position: relative;
+
+//         &_content {
+//             width: fit-content;
+//             position: relative;
+
+//             &_icon {
+//                 position: absolute;
+//                 top: -5%;
+//                 left: 0px;
+//                 color: rgb(59, 59, 59);
+//                 font-size: 14px;
+//             }
+
+//             &_input {
+//                 border: 1px solid lightblue;
+//                 width: 388px;
+//                 outline: none;
+//                 border-radius: 20px;
+//                 padding: 8px 20px 8px 30px;
+
+//                 &::placeholder {
+//                     padding-left: 2.5rem;
+//                     font-size: small;
+//                 }
+//             }
+//         }
+
+//     }
+
+    // &_content {
+    //     overflow-y: scroll;
+    //     flex: 1;
+    // }
+// }
+
+
+
+
+
+.container {
+
+    border-radius: 5%;
+    width: 1070px;
+    display: flex;
+    height: calc(93vh - 70px);
+    display: flex;
+    // flex: .35;
+    flex-direction: row;
+    
+
+    .chat-list {
+        width: 30%;
+        margin: 16px;
+        background: #766491;
+        border-radius: 16px;
+    }
+
+    .chat-title {
+        display: flex !important;
+        justify-content: space-between;
+    }
+    
+    .chat-name {
+        font-weight: 500;
+    }
+    
+    .chat-date {
+        font-size: 0.7rem;
+        color: rgb(255, 255, 255);
+    
+    }
+
+    .messages {
+        width: 70%;
+        padding: 24px;
+        margin: 16px;
+        margin-left: 8px;
+        border-radius: 16px;
+        background: rgba(0,0,0,0.05);
+    
+        .messages-header {
+            display: flex;
+            margin-bottom: 8px;
+           
+        }
+        
+        
+        .messages-header > img {
+        
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 16px;
+            height: 35px;
+        }
+        
+        
+        .messages-header > h2 {
+            margin: 2px;
+        }
+        
+    }
+
+
+
+
+
+
+
+
+    .search-input {
+        
+        margin: 24px;
+    }
+}
+
+
+.chat-area {
+    border-radius: 2%;
+    height: calc(100vh - 320px);
+    // background-color: #c5cae9;
+    display: flex;
+    flex-direction: column;
+
+    overflow: auto;
+}
+
+.chat-area > :first-child {
+    margin-top: auto;
+}
+
+
+.input-area > mat-form-field{
+    width: 100%;
+}
+
+.input-area {
+    padding-top: 16px;
+    padding-bottom: 8px ;
+}
+
+
+.chat-bubble-container {
+    display: flex;
+    width: 100%;
+
+    justify-content: flex-start;
+}
+
+
+.chat-bubble-container.sender {
+    justify-content: flex-end;
+}
+
+.chat-bubble-container.sender > .chat-bubble {
+    background: rgba(56, 255, 255, 0.6);
+}
+
+.chat-bubble {
+
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgba(255, 255, 255, 0.6);
+    padding-top: 8px;
+    padding-bottom: 18px;
+    padding-left: 8px;
+    padding-right: 100px;
+    margin-bottom: 16px;
+    border-radius: 15px;
+    width: fit-content;
+    position: relative;
+}
+
+
+.chat-bubble > .chat-date {
+    position: absolute;
+    bottom: 2px;
+    right: 8px;
+    font-size: 0.7rem;
+    color: black;
+}
+
+
+
+

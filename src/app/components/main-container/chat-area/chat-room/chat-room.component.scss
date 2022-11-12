@@ -1,0 +1,47 @@
+.chat_area {
+    padding: 30px;
+
+    //each individual message
+
+    &_message {
+        position: relative;
+        max-width:400px;
+        width:fit-content;
+        padding: 10px 10px 5px;
+        border-radius: 10px;
+        background-color: bisque;
+        margin: 3rem 0;
+
+        &:first-child {
+            margin-top: 2rem;
+
+        }
+        &_text {
+            font-size: small;
+            max-width: inherit;
+        }
+
+        &_name {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            font-size: small;
+            font-weight: bold;
+            width:200px;
+
+        }
+        &_time {
+            position: relative;
+            right: 0;
+            bottom: 0;
+            margin-left: 10px;
+            font-size: x-small;
+            color:darkcyan;
+        }
+
+        &-owner {
+            margin-left: auto;
+            background-color: greenyellow;
+        }
+    }
+}
